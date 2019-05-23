@@ -1,0 +1,36 @@
+// 语法版本
+syntax = "proto3";
+
+// package = namespace
+package test;
+
+// import = includes
+import "google/protobuf/timestamp.proto";
+
+// message = struct
+message Person{
+  string name = 1;
+  int32 id = 2;
+  string email = 3;
+  
+  enum PhonType {
+	MOBILE = 0;
+	HOME = 1;
+	WORK = 2;
+  }
+  
+  message PhoneNumber{
+    string number = 1;
+	PhonType type = 2;
+  }
+
+  // repeated 可重复字段
+  repeated PhoneNumber phones = 4;
+
+  google.protobuf.Timestamp last_updated = 5;
+}
+
+message AddressBook{
+  repeated Person people = 1;
+}
+	  

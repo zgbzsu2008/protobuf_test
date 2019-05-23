@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+// package = namespace
+package muduo;
+
+// java package
+option java_package  = "muduo.codec.tests";
+option  java_outer_classname = "QueryProtos";
+
+message Query{
+	int64  id = 1;
+	string questioner = 2;
+	string question = 3;
+}
+
+message Answer{
+	int64 id = 1;
+	string questioner = 2;
+	string answer = 3;
+
+	repeated  string solution = 4;
+}
+
+message Empty{
+	int32 id = 1;
+}

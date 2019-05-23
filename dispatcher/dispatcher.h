@@ -29,7 +29,7 @@ class CallbackT : public Callback
 
   virtual void onMessage(Message* message) const
   {
-    T* t = dynamic_cast<T*>(message);
+    T* t = static_cast<T*>(message);
     assert(t != NULL);
     callback_(t);
   }

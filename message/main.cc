@@ -54,11 +54,11 @@ int main(int argc, char* argv[])
     assert(prototype == &T::default_instance());
 
     // 3，通过prototype创建
-    T* new_obj = dynamic_cast<T*>(prototype->New());
+    T* new_obj = static_cast<T*>(prototype->New());
     assert(typeid(*new_obj) == typeid(T::default_instance()));
     delete new_obj;
 
-    T* query = dynamic_cast<T*>(createMessageByTypeName("muduo.Query"));
+    T* query = static_cast<T*>(createMessageByTypeName("muduo.Query"));
     query->set_id(1);
     query->set_question("question");
     query->set_questioner("questioner");
